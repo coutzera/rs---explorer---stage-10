@@ -1,4 +1,6 @@
 require("express-async-errors");
+require("dotenv");
+
 //Importação das bibliotecas
 const express = require("express");
 const cors = require("cors");
@@ -37,7 +39,7 @@ app.use((error, request, response, next) => {
 migrationsRun();
 
 //Declaração de inicialização do servidor
-const PORT = 3033;
+const PORT = process.env.SERVER_PORT || 3333;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
